@@ -1,0 +1,69 @@
+{% load static %}
+    <nav class="pcoded-navbar">
+        <div class="navbar-wrapper">
+            <div class="navbar-brand header-logo">
+                <a target="_blank" 
+                   href="https://techsoftconsulting.mx" class="b-brand">
+                    <div class="b-bg">
+                        <img src="{% static 'assets/images/logoTechsoft.png' %}" alt="Logo">
+                    </div>
+                    <span class="b-title">Techsoft Consulting</span>
+                </a>
+                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+            </div>
+            <div class="navbar-content scroll-div">
+                <ul class="nav pcoded-inner-navbar">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Navegación</label>
+                    </li>
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+                        class="nav-item {% if 'index' == segment %} active {% endif %}">
+                        <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Tultitlán</span></a>
+                    </li>
+
+                    <li data-username="Dashboard charts loaded from a file" 
+                        class="nav-item {% if 'charts_from_file' == segment %} active {% endif %}">
+                        <a href="/charts-file" class="nav-link ">
+                            <span class="pcoded-micon"><i class="feather icon-bar-chart"></i></span>
+                                <span class="pcoded-mtext">Distrito 11</span></a>
+                    </li>                    
+                    <li data-username="Dashboard charts loaded from a simple DB table" 
+                        class="nav-item {% if 'charts_from_input' == segment %} active {% endif %}">
+                        <a href="/charts-input" class="nav-link ">
+                             <span class="pcoded-micon"><i class="feather icon-bar-chart"></i></span>
+                                <span class="pcoded-mtext">Distrito 19</span></a>
+                    </li>                    
+                    <li data-username="Dashboard charts loaded from load data" 
+                        class="nav-item {% if 'charts_from_load' == segment %} active {% endif %}">
+                        <a href="/charts-load" class="nav-link ">
+                             <span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span>
+                                <span class="pcoded-mtext">Distrito 38</span></a>
+                    </li>                    
+                    
+                  
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Autenticación </label>
+                    </li>
+
+                    <li data-username="Disabled Menu" class="nav-item">
+                        {% if user.is_authenticated %}
+                            <a href={% url 'logout' %} class="nav-link">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-power"></i>
+                                </span>
+                                <span class="pcoded-mtext">Logout - [ {{ request.user.username }} ]</span>
+                            </a>
+                        {% else %}
+                            <a href={% url 'login' %} class="nav-link">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-user"></i>
+                                </span>
+                                <span class="pcoded-mtext">Login</span>
+                            </a>
+                        {% endif %}
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
